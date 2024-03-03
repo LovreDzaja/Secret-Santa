@@ -85,7 +85,7 @@ const AddUser: React.FC = () => {
         recipient_name: assignment.recipient.name,
         reply_to: name,
       };
-      emailjs.send('YOUR-SERVICE-ID', 'YOUR-TEMPLATE-ID', templateParams, 'YOUR-ACCOUNT-ID')
+      emailjs.send('service_aotaeco', 'template_7y0cg5p', templateParams, '-HdvPVxYS-oV4jXOX')
         .then((response) => {
           console.log('Email sent successfully!', response);
         })
