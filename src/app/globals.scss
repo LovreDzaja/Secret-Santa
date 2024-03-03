@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+$colors: #ad464c, #789b6c, #66adad, #4281a8, #2c60a8;
+
+@keyframes present-gift {
+  0% {
+    background-color: nth($colors, 1);
+  }
+  20% {
+    background-color: nth($colors, 2);
+  }
+  40% {
+    background-color: nth($colors, 3);
+  }
+  60% {
+    background-color: nth($colors, 4);
+  }
+  80% {
+    background-color: nth($colors, 5);
+  }
+  100% {
+    background-color: nth($colors, 1);
+  }
+}
+
+body{
+  animation: present-gift 5s infinite;
+}
+
+
+$line-height: 40px;
+
+::selection {
+  color: #fff;
+  background: #9FBE5A;
+}
+
+.container {
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 600px; // Limit container width
+}
+
+h1 {
+  font: 400 56px 'Roboto Slab', serif;
+  text-align: center;
+  color: #e4582e;
+}
+
+.form__contact {
+  position: relative; // Add position relative to the form contact
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 30px; // Adjust padding to include border width
+  border-left: 30px solid transparent; // Set border color to transparent
+  border-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI0MS44NnB4IiBoZWlnaHQ9IjUyLjMyNnB4IiB2aWV3Qm94PSIwIDAgNDEuODYgNTIuMzI2IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA0MS44NiA1Mi4zMjYiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLDB2MjUuMTYzaDcuMDk3YzAuNTAxLTQuOTg5LDQuNzEyLTguODg0LDkuODMzLTguODg0YzUuNDU4LDAsOS44ODQsNC40MjUsOS44ODQsOS44ODRzLTQuNDI1LDkuODg0LTkuODg0LDkuODg0Yy01LjEyMSwwLTkuMzMyLTMuODk1LTkuODMzLTguODg0SDB2MjUuMTYzaDQxLjg2VjBIMHoiLz48L3N2Zz4=) 5% 100% repeat;
+  border-image-width: 0px 0px 0px 30px;
+  transform: translateY(100%);
+  animation: init 1s ease-in-out forwards;
+  overflow: hidden; // Hide the overflow to prevent the border-image from being visible outside
+}
+
+.form__contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; // Set background color
+  z-index: -1; // Place the background behind the content
+}
+
+fieldset {
+  position: relative;
+  margin: 0;
+  padding: 30px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  font: 24px 'Shadows Into Light', cursive;
+  background: linear-gradient(rgba(0,0,0,.1) 1px, transparent 0) 0 20px / 100% $line-height;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #e53e3e; // Red-800
+
+}
+
+input[type="text"],
+input[type="email"] {
+  width: calc(100% - 60px); // Adjust input width
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    border-color: #3182ce; // Blue-600
+  }
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #48bb78; // Green-600
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #2f855a; // Green-700
+  }
+}
+
+.assign-btn {
+  background-color: #ed64a6; // Red-800
+  margin-top: 0.5rem;
+}
+
+.assign-btn:hover {
+  background-color: #2f855a; // Green-700
+}
+
+.p {
+  margin: 0;
+  line-height: $line-height;
+  color: #333;
+}
+
+span {
+  position: relative;
+  line-height: $line-height;
+}
+
+@keyframes init {
+  75% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes present-gift {
+  0% {
+    background-color: #6b3135;
+  }
+  20% {
+    background-color: #5e615d;
+  }
+  40% {
+    background-color: #6a7c7c;
+  }
+  60% {
+    background-color: #43657a;
+  }
+  80% {
+    background-color: #243c5e;
+  }
+  100% {
+    background-color: #6b3135;
+  }
+}
